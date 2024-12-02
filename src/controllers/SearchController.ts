@@ -7,7 +7,7 @@ export class SearchController {
       let query = req.query.q;
 
       if (query === "" || query === undefined || query === null) {
-          res.render('search/render', { books: [] });
+          res.render('search/render', { books: [], query: 'O campo precisa ser preenchido ne fio' });
       }
 
       const books = await getBooks(query);
@@ -17,7 +17,7 @@ export class SearchController {
       query = '';
     } catch (err) {
       console.error(err);
-      res.status(500).send('Erro ao buscar livros');
+      res.render('search/render', { books: [], query: 'Não foi possivel achar esse livro slk' });
     }
   }
 }

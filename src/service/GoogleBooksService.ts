@@ -12,9 +12,11 @@ export async function getBooks(query) {
 
     console.log(response.data.items)
 
-    // removendo livros sem categorias (e, possivelmente, capas)
-    // .filter(item => item.volumeInfo.categories !== undefined)
+    // removendo livros que nao possuem preços 
+    // (por algum motivo, tem vários livros duplicados que nao possuem uma thumbnail)
+
     return response.data.items
+    .filter(item => item.saleInfo.listPrice !== undefined)
     .slice(0, 8);
 
 }
