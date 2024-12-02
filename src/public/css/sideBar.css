@@ -3,7 +3,7 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #4723D9;
+    --first-color: #3d31a8;
     --first-color-light: #AFA5D9;
     --white-color: #F7F6FB;
     --body-font: 'Nunito', sans-serif;
@@ -97,16 +97,6 @@ a {
     margin-bottom: 2rem
 }
 
-.nav_logo-icon {
-    font-size: 1.25rem;
-    color: var(--white-color)
-}
-
-.nav_logo-name {
-    color: var(--white-color);
-    font-weight: 700
-}
-
 .nav_link {
     position: relative;
     color: var(--first-color-light);
@@ -127,7 +117,7 @@ a {
 }
 
 .body-pd {
-    padding-left: calc(var(--nav-width) + 1rem)
+    padding-left: calc(var(--nav-width) + 5px)
 }
 
 .active {
@@ -154,7 +144,7 @@ a {
     }
 
     .header {
-        height: calc(var(--header-height) + 1rem);
+        height: calc(var(--header-height) + 5px);
         padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
     }
 
@@ -179,4 +169,31 @@ a {
     .body-pd {
         padding-left: calc(var(--nav-width) + 188px)
     }
+}
+
+.header {
+    background-color: transparent !important;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+.navbar-after-scroll {
+    background-color: transparent !important;
+    transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
+}
+
+.navbar-after-scroll {
+    background-color: #ffffff !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* Transition to the initial state */
+.navbar-before-scroll {
+    background-color: #ffffff !important;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.navbar.navbar-before-scroll.navbar-after-scroll {
+    padding-top: 5px;
+    padding-bottom: 5px;
 }

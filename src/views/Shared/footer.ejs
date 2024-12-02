@@ -1,5 +1,5 @@
 <footer>
-    teste
+    <!-- nao sei oq colocar aqui, é isso bb -->
 </footer>
 
 <!-- MDB -->
@@ -56,6 +56,19 @@
     
         setActiveLink();
     });
+
+
+    const navBar = document.getElementById('header')
+
+        window.addEventListener('scroll', function () {
+            if (window.pageYOffset > 0) {
+                navBar.classList.add('navbar-after-scroll')
+            } else {
+                navBar.classList.remove('navbar-after-scroll')
+            }
+
+        })
+
     
     </script>
 

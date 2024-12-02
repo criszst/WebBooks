@@ -1,42 +1,52 @@
 <%- include('../shared/header'); %>
-<%- include('./form'); %>
+   <%- include('./form'); %>
+<section class="dark">
+   <div class="container py-4">
 
-<section class="container-fluid" style="margin-top: 100px; ">
+         
+            <h1 class="h1 text-center" id="pageHeaderTitle">"<%= query %>"</h1>
+            <% for (let i=0; i < books.length; i++) { %>
+               <article class="postcard dark blue">
+                  <a class="postcard__img_link" href="#">
+                     <img class="postcard__img" style="max-height: 314px;"
+                     src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api' alt="Image Title" />
+                  </a>
+                  <div class="postcard__text">
+                     <h1 class="postcard__title blue"><a href="#"><%= books[i].volumeInfo.title %></a></h1>
+                     <div class="postcard__subtitle small">
+                        <time datetime="2020-05-25 12:00:00">
+                           <i class="fas fa-calendar-alt mr-2"></i>
+                           <%= books[i].volumeInfo.publishedDate %>
+                        </time>
+                     </div>
+                     <div class="postcard__bar"></div>
+                     <div class="postcard__preview-txt" style="font-size: 14px;"><%= books[i].volumeInfo.description %></div>
+                     <ul class="postcard__tagbox">
+                        <li class="tag__item">
+                           <i class="fas fa-tags"></i>
+                           <%= books[i].volumeInfo.categories %>
+                        </li>
 
-    <div class="col-12 col-sm-6 col-md-2 col-lg-3">
-         <% for(var i=0; i<books.length - 1; i++) 
-         {%>
+                        <li class="tag__item">
+                           <i class="fas fa-file"></i>
+                           <%= books[i].volumeInfo.pageCount %> páginas
+                        </li>
 
-        <div class="card">
-           <div class="bg-image hover-zoom ripple ripple-surface ripple-surface-light" data-mdb-ripple-color="light">
-              <img src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api' class="w-100 img-fluid imgCardList imgModal" />
-              <a>
-                 <div class="mask" style="background-color: hsla(0, 0%, 0%, 0.2) !important;">
-                    <div class="d-flex justify-content-start align-items-end h-100">
-                       <h5><span class="badge ms-2" style="background-color: #463754"></span></h5>
-                    </div>
-                 </div>
-                 <div class="hover-overlay">
-                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.10);"></div>
-                 </div>
-              </a>
-           </div>
-           <div class="card-body">
-              <div class="text-reset">
-                 <h6 class="card-title mb-3"><%= books[i].volumeInfo.title %></h6>
-              </div>
-              <a class="text-reset">
-                 <p></p>
-              </a> 
-     
-              <button type="button" class="btn btn-info" onclick="openModal('${img}', '${title}', '${price}', 'a')" style="background-color: #463754"
-                 data-bs-toggle="modal" data-bs-target="#modalPrice" id="#modalPrice">
-                 <%= books[i].volumeInfo.author %>
-              </button>
-     
-           </div>
-        </div>
-        <% } %>
-    </section>
+                        <li class="tag__item play blue">
+                           <a href="#">
+                              <i class="fas fa-circle-info"></i>
+                              Ver Detalhes
+                           </a>
+                        </li>
 
-<%- include('../Shared/footer'); %>
+                     </ul>
+                  </div>
+               </article>
+
+            <% } %>
+         </div>
+
+
+      </section>
+
+      <%- include('../shared/footer'); %>
