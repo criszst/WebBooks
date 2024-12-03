@@ -9,7 +9,7 @@ const searchController = new SearchController();
 const app = express();
 const router = express.Router();
 
-const port = 3000;
+const port = 8081;
 
 // express to ejs
 app.set('view engine', 'ejs');
@@ -22,13 +22,17 @@ app.use(express.static(path.join(__dirname, 'src', 'public')));
 
 // app.use('/books/', BookRouter);
 
-// rotas
-
+// index
 router.get('/', (req, res) => res.render('index'));
 router.get('/index', (req, res) => res.redirect('/'));
 
 
+// search
 router.get('/search', searchController.search);
+
+router.get('/search/details/:id', (req: Request, res: Response) => {
+    searchController.getBookDetailsById(req, res);
+  });
 
 
 app.use(router);

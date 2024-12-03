@@ -8,8 +8,8 @@
             <% for (let i=0; i < books.length; i++) { %>
                <article class="postcard dark blue">
                   <a class="postcard__img_link" href="#">
-                     <img class="postcard__img" style="max-height: 314px;"
-                     src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api' alt="Image Title" />
+                     <img class="postcard__img" style="max-height: 100%;"
+                     src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt="Image Title" />
                   </a>
                   <div class="postcard__text">
                      <h1 class="postcard__title blue"><a href="#"><%= books[i].volumeInfo.title %></a></h1>
@@ -20,7 +20,7 @@
                         </time>
                      </div>
                      <div class="postcard__bar"></div>
-                     <div class="postcard__preview-txt" style="font-size: 14px;"><%= books[i].volumeInfo.description %></div>
+                     <div class="postcard__preview-txt" style="font-size: 14px;"><%= books[i].searchInfo.textSnippet === undefined ? books[i].volumeInfo.description :  books[i].searchInfo.textSnippet%></div>
                      <ul class="postcard__tagbox">
                         <li class="tag__item">
                            <i class="fas fa-tags"></i>
@@ -33,7 +33,7 @@
                         </li>
 
                         <li class="tag__item play blue">
-                           <a href="#">
+                           <a href="/search/details/<%= books[i].id %>">
                               <i class="fas fa-circle-info"></i>
                               Ver Detalhes
                            </a>

@@ -2,7 +2,7 @@
 import { Request, Response, NextFunction } from 'express';
 import BookModel from '../models/BookModel';
 import BookRepository from '../repositories/BookRepository';
-import { get } from 'http';
+
 
 async function getBookModelById(req: Request, res: Response, next: NextFunction) {
     const id = req.params.id;
