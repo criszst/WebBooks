@@ -4,12 +4,16 @@
 I doing this site for hobby and study about TypeScript and its uses.
 I'm not really expecting finish this project in few months, but i'll try
 
-## INFRASTRUCTURE 
-I doing this site with TypeScript, NodeJS, Express and using MVC Architecture 
-(further, i am using EJS for replace HTML)
-
 ## OBJECTIVES
   - Finish the home page (home page has just a h1, for god sake.......)
   - Finish the Book Detail page
   - A page for login, what uses SQL and create the user data
   - Using this user data to save somo favorites books and return recommendations
+
+## INFRASTRUCTURE 
+  - TypeScript
+  - NodeJs
+  - Express
+  - EJS
+  - MVC Architecture
+ 
