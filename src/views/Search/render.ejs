@@ -4,15 +4,15 @@
    <div class="container py-4">
 
          
-            <h1 class="h1 text-center" id="pageHeaderTitle">"<%= query %>"</h1>
+            <h1 class="h1 text-center" id="pageHeaderTitle"><%= query === undefined ? "Insira um livro para pesquisar" : query  %></h1>
             <% for (let i=0; i < books.length; i++) { %>
                <article class="postcard dark blue">
-                  <a class="postcard__img_link" href="#">
+                  <a class="postcard__img_link" href="/book/details/<%= books[i].id %>">
                      <img class="postcard__img" style="max-height: 100%;"
                      src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt="Image Title" />
                   </a>
                   <div class="postcard__text">
-                     <h1 class="postcard__title blue"><a href="#"><%= books[i].volumeInfo.title %></a></h1>
+                     <h1 class="postcard__title blue"><a href="/book/details/<%= books[i].id %>"><%= books[i].volumeInfo.title %></a></h1>
                      <div class="postcard__subtitle small">
                         <time datetime="2020-05-25 12:00:00">
                            <i class="fas fa-calendar-alt mr-2"></i>
@@ -33,7 +33,7 @@
                         </li>
 
                         <li class="tag__item play blue">
-                           <a href="/search/details/<%= books[i].id %>">
+                           <a href="/book/details/<%= books[i].id %>">
                               <i class="fas fa-circle-info"></i>
                               Ver Detalhes
                            </a>

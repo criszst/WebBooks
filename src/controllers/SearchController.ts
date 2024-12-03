@@ -1,36 +1,18 @@
 import { Request, Response } from 'express';
-import { getBooks, getBookById } from '../service/GoogleBooksService';
+import { getBooks, getBookById } from '../services/GoogleBooksService';
 
 export class SearchController {
-  async search(req: Request, res: Response) {
-    try {
-      let query = req.query.q;
-      let books = await getBooks('Clean Code');
+  async SearchBook(req: Request, res: Response) {
+      const query = req.query.q;
+      const books = query === undefined ? await getBooks('Clean Code') : await getBooks(query);
 
-      if (query === "" || query === undefined || query === null) {
-        res.render('search/render', { books: books, query: 'INSIRA UM LIVRO NA BARRA DE PESQUISA' });
-      }
-
-      books = await getBooks(query);
-
-      res.render('search/render', { books: books, query: query });
-
-      query = '';
-    } catch (err) {
-      console.error(err);
-      res.render('search/render', { books: [], query: 'Não foi possivel achar esse livro slk' });
-    }
+      res.render('search/render', { books, query });
   }
 
-  async getBookDetailsById(req: Request, res: Response) {
+  async GetBookDetailsById(req: Request, res: Response) {
     const bookId = req.params.id;
-
-    console.log(bookId)
-
-    if (!bookId) return [];
-
     const book = await getBookById(bookId);
 
-    res.render('search/detail/detail', { book: book });
+    res.render('bookdetail/detail', { book });
   }
 }

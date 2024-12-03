@@ -27,11 +27,13 @@ router.get('/', (req, res) => res.render('index'));
 router.get('/index', (req, res) => res.redirect('/'));
 
 
-// search
-router.get('/search', searchController.search);
+// busca
+router.get('/search', searchController.SearchBook);
 
-router.get('/search/details/:id', (req: Request, res: Response) => {
-    searchController.getBookDetailsById(req, res);
+
+// detalhes
+router.get('/book/details/:id', (req: Request, res: Response) => {
+    searchController.GetBookDetailsById(req, res);
   });
 
 
