@@ -1,52 +1,70 @@
 <%- include('../shared/header'); %>
    <%- include('./form'); %>
-<section class="dark">
+<section>
    <div class="container py-4">
+   
+      <h1 class="h1 text-center" id="pageHeaderTitle">
+         <%= query===undefined ? "Insira um livro para pesquisar" : query %>
+      </h1>
+      <% for (let i=0; i < books.length; i++) { %>
+         <article class="postcard dark blue">
 
-         
-            <h1 class="h1 text-center" id="pageHeaderTitle"><%= query === undefined ? "Insira um livro para pesquisar" : query  %></h1>
-            <% for (let i=0; i < books.length; i++) { %>
-               <article class="postcard dark blue">
-                  <a class="postcard__img_link" href="/book/details/<%= books[i].id %>">
-                     <img class="postcard__img" style="max-height: 100%;"
-                     src="<%- books[i].volumeInfo.imageLinks.thumbnail %>" alt="Image Title" />
+            <a class="postcard__img_link" href="/book/details/<%= books[i].id %>">
+               <img class="postcard__img" style="max-height: 100%;"
+                  src="https://books.google.com/books/publisher/content/images/frontcover/<%- books[i].id %>?fife=w400-h600&source=gbs_api"
+                  alt="Image Title" />
+            </a>
+
+            <div class="postcard__text">
+               
+               <h1 class="postcard__title blue">
+                  <a href="/book/details/<%= books[i].id %>">
+                     <%= books[i].volumeInfo.title %>
                   </a>
-                  <div class="postcard__text">
-                     <h1 class="postcard__title blue"><a href="/book/details/<%= books[i].id %>"><%= books[i].volumeInfo.title %></a></h1>
-                     <div class="postcard__subtitle small">
-                        <time datetime="2020-05-25 12:00:00">
-                           <i class="fas fa-calendar-alt mr-2"></i>
-                           <%= books[i].volumeInfo.publishedDate %>
-                        </time>
-                     </div>
-                     <div class="postcard__bar"></div>
-                     <div class="postcard__preview-txt" style="font-size: 14px;"><%= books[i].searchInfo.textSnippet === undefined ? books[i].volumeInfo.description :  books[i].searchInfo.textSnippet%></div>
-                     <ul class="postcard__tagbox">
-                        <li class="tag__item">
-                           <i class="fas fa-tags"></i>
-                           <%= books[i].volumeInfo.categories %>
-                        </li>
+               </h1>
 
-                        <li class="tag__item">
-                           <i class="fas fa-file"></i>
-                           <%= books[i].volumeInfo.pageCount %> páginas
-                        </li>
+               <div class="postcard__subtitle small">
+                  <time datetime="2024-12-09 14:09:00">
+                     <i class="fas fa-calendar-alt mr-2"></i>
+                     <%= new Date(books[i].volumeInfo.publishedDate).toLocaleDateString('pt-BR') %>
+                  </time>
+               </div>
 
-                        <li class="tag__item play blue">
-                           <a href="/book/details/<%= books[i].id %>">
-                              <i class="fas fa-circle-info"></i>
-                              Ver Detalhes
-                           </a>
-                        </li>
+               <div class="postcard__bar"></div>
 
-                     </ul>
-                  </div>
-               </article>
+               <div class="postcard__preview-txt" style="font-size: 14px;">
+                  <%= books[i].searchInfo.textSnippet===undefined ? books[i].volumeInfo.description :
+                     books[i].searchInfo.textSnippet%>
+               </div>
+   
+               <ul class="postcard__tagbox">
 
-            <% } %>
-         </div>
+                  <li class="tag__item">
+                     <i class="fas fa-tags"></i>
+                     <%= books[i].volumeInfo.categories %>
+                  </li>
+   
+                  <li class="tag__item">
+                     <i class="fas fa-file"></i>
+                     <%= books[i].volumeInfo.pageCount %> páginas
+                  </li>
+   
+                  <li class="tag__item play blue">
+                     <a href="/book/details/<%= books[i].id %>">
+                        <i class="fas fa-circle-info"></i>
+                        Ver Detalhes
+                     </a>
+                  </li>
+   
+               </ul>
 
+            </div>
+         </article>
+   
+         <% } %>
+   </div>
+   
+   
+</section>
 
-      </section>
-
-      <%- include('../shared/footer'); %>
+<%- include('../shared/footer'); %>

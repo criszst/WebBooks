@@ -7,9 +7,6 @@
 	 text-rendering: optimizeLegibility;
 	 font-weight: initial;
 }
- .dark {
-	 background: #110f16;
-}
  .light {
 	 background: #f3f5f7;
 }
@@ -37,6 +34,9 @@ i {
 	 overflow: hidden;
 	 position: relative;
 	 color: #fff;
+
+  box-shadow: 0 6px 15px 0 rgba( 31, 38, 135, 0.37 );
+
 }
  .postcard.dark {
 	 background-color: #18151f;

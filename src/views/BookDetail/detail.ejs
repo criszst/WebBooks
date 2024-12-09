@@ -1,52 +1,109 @@
 <%- include('../shared/header'); %>
 
-<section class="container-hero">
-    <div class="row">
-    
-
-    
-    
-    
-        <div class="col-md-3 divImg">
-            <img class="imageDetail img-fluid" src="<%- book.volumeInfo.imageLinks.thumbnail %>" alt="Capa do livro">
+<section class="container-hero sectionDetail">
+        <div class="backgroundCover">
+            <img src="<%- book.volumeInfo.imageLinks.thumbnail %>" alt="Capa do livro">
+        
+            <div class="transparencyEffect"></div>
         </div>
-
-            
-    
-        <div class="col-md-8 offset-md-1">
-    
-            <div>
-                <figure>
-                    <blockquote class="blockquote">
-                        <h1 class="title"><%- book.volumeInfo.title %></h1>
-                    </blockquote>
-                    <figcaption class="blockquote-footer subtitle">
-                        <%- book.volumeInfo.authors %>
-                    </figcaption>
-                </figure>
-    
+        
+        <div class="headerInfo container row">
+        
+            <div class="bookCoverImage col-md-4">
+                <div class="fixedImg">
+                    <figure class="cover">
+        
+                        <img class=" img-fluid"
+                            src="https://books.google.com/books/publisher/content/images/frontcover/<%- book.id %>?fife=w400-h600&source=gbs_api"
+                            alt="Capa do livro">
+        
+                    </figure>
+                </div>
             </div>
-    
-            <div>
-                <% for (let i=0; i < book.volumeInfo.averageRating; i++) { %>
-                    <i class="fas fa-star"></i>
-                    <% } %>
-    
-                        <span class="rating"><%- book.volumeInfo.averageRating %></span>
+        
+        
+            <div class="bookInfo col-md-8">
+        
+                <div class="mainInfo">
+                    <div>
+                        <figure>
+                            <blockquote class="blockquote">
+                                <h1 class="title"><%- book.volumeInfo.title %></h1>
+                            </blockquote>
+                            <figcaption class="blockquote-footer subtitle">
+                                <%- book.volumeInfo.authors %>
+                            </figcaption>
+                        </figure>
+        
+                    </div>
+        
+        
+                    <div>
+                        <% for (let i=0; i < book.volumeInfo.averageRating; i++) { %>
+                            <i class="fas fa-star ratingColor"></i>
+                            <% } %>
+        
+                                <span class="rating"><%- book.volumeInfo.averageRating %></span>
+                    </div>
+        
+                    <div class="row infosBook">
+                        <div class="col-lg-3 position-relative">
+                            <h6 class="mb-3">
+                                Preço
+                            </h6>
+        
+        
+                            <h6 class="fw-bold mb-0" style="margin-left: -8px !important;">
+        
+                                <span>
+                                    <i class="fas fa-money-check-dollar  mb-2"></i>
+                                    <%- book.saleInfo.retailPrice.amount %> R$
+                                </span>
+        
+                            </h6>
+                            <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+                        </div>
+        
+                        <div class="col-lg-3 position-relative">
+                            <h6 class="mb-3">
+                                Páginas
+                            <h6 />
+        
+        
+                            <h6 class="fw-bold mb-0" style="margin-left: -8px !important;">
+        
+                                <span>
+                                    <i class="fas fa-book-open  mb-2"></i>
+                                    <%- book.volumeInfo.pageCount %>
+                                </span>
+        
+                            </h6>
+                            <div class="vr vr-blurry position-absolute my-0 h-100 d-none d-md-block top-0 end-0"></div>
+                        </div>
+        
+                        <div class="col-lg-3 position-relative">
+                            <h6 class=" mb-3" >
+                                Idioma
+                            </h6>
+        
+        
+                            <h6 class="fw-bold mb-0" style="margin-left: -8px !important;">
+        
+                                <span>
+                                    <i class="fas fa-language  mb-2"></i>
+                                    <%- book.volumeInfo.language %>
+                                </span>
+        
+                            </h6>
+        
+                        </div>
+        
+                    </div>
+                </div>
+        
+        
             </div>
+        
         </div>
-
-        <div class="col-md-3 offset-md-1 d-flex">
-    
-            <a href="<%- book.volumeInfo.buyLink %>" style="margin-top: 20px;">
-                <button class="btn btn-success">Compre na Google Books </button>
-            </a>
-    
-            <p><%- book.volumeInfo.publishedDate %></p>
-    
-        </div>
-    </div>
-
-
 </section>
 <%- include('../shared/footer'); %>
