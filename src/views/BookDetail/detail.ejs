@@ -1,5 +1,52 @@
 <%- include('../shared/header'); %>
 
-<%= book.volumeInfo.title %>
+<section class="container-hero">
+    <div class="row">
+    
 
+    
+    
+    
+        <div class="col-md-3 divImg">
+            <img class="imageDetail img-fluid" src="<%- book.volumeInfo.imageLinks.thumbnail %>" alt="Capa do livro">
+        </div>
+
+            
+    
+        <div class="col-md-8 offset-md-1">
+    
+            <div>
+                <figure>
+                    <blockquote class="blockquote">
+                        <h1 class="title"><%- book.volumeInfo.title %></h1>
+                    </blockquote>
+                    <figcaption class="blockquote-footer subtitle">
+                        <%- book.volumeInfo.authors %>
+                    </figcaption>
+                </figure>
+    
+            </div>
+    
+            <div>
+                <% for (let i=0; i < book.volumeInfo.averageRating; i++) { %>
+                    <i class="fas fa-star"></i>
+                    <% } %>
+    
+                        <span class="rating"><%- book.volumeInfo.averageRating %></span>
+            </div>
+        </div>
+
+        <div class="col-md-3 offset-md-1 d-flex">
+    
+            <a href="<%- book.volumeInfo.buyLink %>" style="margin-top: 20px;">
+                <button class="btn btn-success">Compre na Google Books </button>
+            </a>
+    
+            <p><%- book.volumeInfo.publishedDate %></p>
+    
+        </div>
+    </div>
+
+
+</section>
 <%- include('../shared/footer'); %>

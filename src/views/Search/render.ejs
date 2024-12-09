@@ -9,7 +9,7 @@
                <article class="postcard dark blue">
                   <a class="postcard__img_link" href="/book/details/<%= books[i].id %>">
                      <img class="postcard__img" style="max-height: 100%;"
-                     src='http://books.google.com/books/content?id=<%=books[i].id%>&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api' alt="Image Title" />
+                     src="<%- books[i].volumeInfo.imageLinks.thumbnail %>" alt="Image Title" />
                   </a>
                   <div class="postcard__text">
                      <h1 class="postcard__title blue"><a href="/book/details/<%= books[i].id %>"><%= books[i].volumeInfo.title %></a></h1>
