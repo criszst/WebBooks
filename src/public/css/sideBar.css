@@ -178,14 +178,14 @@ a {
 }
 
 .navbar-after-scroll {
-    background-color: #2f115a !important;
+    background-color: #161d2c !important;
   padding-top: 5px;
   padding-bottom: 5px;
 }
 
 /* Transition to the initial state */
 .navbar-before-scroll {
-    background-color: #2f115a !important;
+    background-color: #161d2c !important;
   padding-top: 5px;
   padding-bottom: 5px;
 }

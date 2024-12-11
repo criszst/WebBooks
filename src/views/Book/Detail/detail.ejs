@@ -27,23 +27,31 @@
                 <div class="mainInfo">
                     <div>
                         <figure>
+
                             <blockquote class="blockquote">
-                                <h1 class="title"><%- book.volumeInfo.title %></h1>
+                                <h1 class="title" style="margin-left: 6px;">
+                                    <%- book.volumeInfo.title %>
+                                </h1>
                             </blockquote>
-                            <figcaption class="blockquote-footer subtitle">
+
+                            <figcaption class="blockquote-footer subtitle" style="margin-left: 10px;">
                                 <%- book.volumeInfo.authors %>
                             </figcaption>
+
                         </figure>
         
                     </div>
         
         
                     <div>
+                        
                         <% for (let i=0; i < book.volumeInfo.averageRating; i++) { %>
                             <i class="fas fa-star ratingColor"></i>
                             <% } %>
         
-                                <span class="rating"><%- book.volumeInfo.averageRating %></span>
+                            <span class="rating">
+                                <%- book.volumeInfo.averageRating.toFixed(1) %>
+                            </span>
                     </div>
         
                     <div class="row infosBook">
@@ -101,8 +109,8 @@
                     </div>
 
                     <div>
-                        <h6 class="fw-bold mb-3" style="margin-left: 10px;">
-                            Categories
+                        <h6 class="fw-normal mb-3" style="margin-left: 10px;">
+                            Categorias
                         </h6>
                         <% const categories=book.volumeInfo.categories[0].split('/') %>
                         
@@ -115,11 +123,31 @@
                         <% }) %>
                     
                     </div>
+
+                    <div class="readExampleDiv">
+                        <div class="row" style="gap: 30px">
+                            
+                                <button 
+                                type="button" 
+                                class="btn btnReadExample col-lg-4" 
+                                onclick="window.open('<%- book.accessInfo.webReaderLink %>', '_blank')"
+                                >
+                                    <span>Ler Amostra</span>
+                                </button>
+                    
+                            <button type="button" class="btn btnReadExample  col-lg-4">
+                                <span>Salvar na Biblioteca</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
         
         
             </div>
         
         </div>
+</section>
+
+<section>
 </section>
 <%- include('../../shared/footer'); %>

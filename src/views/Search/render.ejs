@@ -33,8 +33,8 @@
                <div class="postcard__bar"></div>
 
                <div class="postcard__preview-txt" style="font-size: 14px;">
-                  <%= books[i].searchInfo.textSnippet===undefined ? books[i].volumeInfo.description :
-                     books[i].searchInfo.textSnippet%>
+                  <%= books[i].volumeInfo.description ===undefined ? books[i].searchInfo.textSnippet :
+                     books[i].volumeInfo.description%>
                </div>
    
                <ul class="postcard__tagbox">
