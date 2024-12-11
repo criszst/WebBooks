@@ -2,8 +2,7 @@
 
 ## WEBBOOKS
 I doing this site for hobby and study about TypeScript and its uses.
-I'm not really expecting finish this project in few months, but i'll try
-
+I'm not really expecting finish this project in less than 6 months, but'il try 
 ## OBJECTIVES
   - Finish the home page (home page has just a h1, for god sake.......)
   - Finish the Book Detail page
