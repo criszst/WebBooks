@@ -1,4 +1,4 @@
-<%- include('../shared/header'); %>
+<%- include('../../shared/header'); %>
 
 <section class="container-hero sectionDetail">
         <div class="backgroundCover">
@@ -57,7 +57,7 @@
         
                                 <span>
                                     <i class="fas fa-money-check-dollar  mb-2"></i>
-                                    <%- book.saleInfo.retailPrice.amount %> R$
+                                    R$ <%- book.saleInfo.retailPrice.amount %>
                                 </span>
         
                             </h6>
@@ -99,6 +99,22 @@
                         </div>
         
                     </div>
+
+                    <div>
+                        <h6 class="fw-bold mb-3" style="margin-left: 10px;">
+                            Categories
+                        </h6>
+                        <% const categories=book.volumeInfo.categories[0].split('/') %>
+                        
+                        <% categories.forEach(category=> { %>
+                            <a href="/book/categories/<%- category.trim().toLowerCase() %>">
+                            <span class="badge chip">
+                                    <%- category.trim() %>
+                            </span>
+                        </a>
+                        <% }) %>
+                    
+                    </div>
                 </div>
         
         
@@ -106,4 +122,4 @@
         
         </div>
 </section>
-<%- include('../shared/footer'); %>
+<%- include('../../shared/footer'); %>

@@ -5,7 +5,7 @@ import { routes } from './src/routes';
 
 
 const app = express();
-const port = 9090;
+const port = 3000;
 
 
 // express to ejs

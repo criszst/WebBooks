@@ -13,6 +13,6 @@ export class SearchController {
     const bookId = req.params.id;
     const book = await getBookById(bookId);
 
-    res.render('bookdetail/detail', { book });
+    res.render('book/detail/detail', { book });
   }
 }

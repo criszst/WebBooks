@@ -38,23 +38,28 @@
                </div>
    
                <ul class="postcard__tagbox">
-
-                  <li class="tag__item">
-                     <i class="fas fa-tags"></i>
-                     <%= books[i].volumeInfo.categories %>
-                  </li>
-   
+                  <a href="book/categories/<%= books[i].volumeInfo.categories[0].trim().toLowerCase() %>">
+                     <li class="tag__item play blue">
+                  
+                        <i class="fas fa-tags"></i>
+                        <%= books[i].volumeInfo.categories[0] %>
+                  
+                     </li>
+                  </a>
+                  
                   <li class="tag__item">
                      <i class="fas fa-file"></i>
                      <%= books[i].volumeInfo.pageCount %> páginas
                   </li>
-   
+                  
+                  <a href="/book/details/<%= books[i].id %>">
                   <li class="tag__item play blue">
-                     <a href="/book/details/<%= books[i].id %>">
-                        <i class="fas fa-circle-info"></i>
-                        Ver Detalhes
-                     </a>
+                  
+                     <i class="fas fa-circle-info"></i>
+                     Ver Detalhes
+                  
                   </li>
+                  </a>
    
                </ul>
 
