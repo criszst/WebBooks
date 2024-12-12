@@ -133,3 +133,14 @@
     transform: scale(0.9);
   }
   
+
+  .detailSection {
+    color: #ffffffc7;
+    margin-top: 20px;
+    padding: 0 10px;
+  }
+
+  .descriptionDiv {
+    border-radius: 20px;
+
+  }

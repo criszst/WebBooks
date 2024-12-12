@@ -50,7 +50,7 @@
                             <% } %>
         
                             <span class="rating">
-                                <%- book.volumeInfo.averageRating.toFixed(1) %>
+                                <%- book.volumeInfo.averageRating %>
                             </span>
                     </div>
         
@@ -148,6 +148,12 @@
         </div>
 </section>
 
-<section>
-</section>
-<%- include('../../shared/footer'); %>
+<!-- <section class="container detailSection" style="background-color: #1a1b26;">
+    <div class="note descriptionDiv  mb-3">
+        <strong>Descrição:</strong>
+        <%- book.volumeInfo.description %>
+      </div>
+      
+</section> -->
+
+
