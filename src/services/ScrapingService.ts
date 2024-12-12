@@ -1,0 +1,1 @@
+// TODO Web Scraping para pegar as avaliacoes dos livros
