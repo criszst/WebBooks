@@ -25,14 +25,16 @@ export class SearchController {
       '1': (a, b) => a.volumeInfo.title.localeCompare(b.volumeInfo.title),
       '2': (a, b) => b.volumeInfo.title.localeCompare(a.volumeInfo.title),
 
-      '3':  (a, b) => `${a.volumeInfo.saleInfo.retailPrice.amount}, ${b.volumeInfo.saleInfo.retailPrice.amount}`,
-      '4': (a, b) => parseFloat(b.price.replace(',', '.')) - parseFloat(a.price.replace(',', '.'))
+      // preços maiores
+      '3':  (a, b) => parseFloat(b.saleInfo.retailPrice.amount) 
+                    - parseFloat(a.saleInfo.retailPrice.amount),
+
+      // preços menores
+      '4': (a, b) => parseFloat(a.saleInfo.retailPrice.amount) 
+                    - parseFloat(b.saleInfo.retailPrice.amount)
   };
 
   const books = book.sort((a, b) => orderSelected[req.params.order](a, b));
-
-
-  console.log(books);
 
   res.render('search/render', { books, query });
   }
