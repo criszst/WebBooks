@@ -21,19 +21,19 @@ export class SearchController {
     const query = req.params.query
     const book = query === undefined ? await getBooks('Clean Code') : await getBooks(query);
 
-    const order = {
-      '1': (a, b) => a.title.localeCompare(b.title),
-      '2': (a, b) => b.title.localeCompare(a.title),
+    const orderSelected = {
+      '1': (a, b) => a.volumeInfo.title.localeCompare(b.volumeInfo.title),
+      '2': (a, b) => b.volumeInfo.title.localeCompare(a.volumeInfo.title),
 
-      '3': async (a, b) => 
-            parseFloat(await getBooks(book).then(c => c.saleInfo.listPrice.amount)) 
-           - parseFloat(await getBooks(book).then(c => c.saleInfo.listPrice.amount)),
+      '3':  (a, b) => `${a.volumeInfo.saleInfo.retailPrice.amount}, ${b.volumeInfo.saleInfo.retailPrice.amount}`,
       '4': (a, b) => parseFloat(b.price.replace(',', '.')) - parseFloat(a.price.replace(',', '.'))
   };
 
+  const books = book.sort((a, b) => orderSelected[req.params.order](a, b));
 
-    const sortedBooks = order[req.params.order](book);
 
-    res.send('Test -> BookFilter: ' + req.params.order + ' ' + req.params.query);
+  console.log(books);
+
+  res.render('search/render', { books, query });
   }
 }

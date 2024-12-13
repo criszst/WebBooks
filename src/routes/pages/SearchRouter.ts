@@ -9,7 +9,7 @@ const searchController = new SearchController();
 
 searchRouter.get('/search', searchController.SearchBook);
 
-searchRouter.get('/search/order/:order/:query', searchController.BookFilter);
+searchRouter.get('/search/:order/:query', searchController.BookFilter);
 
 
 export default searchRouter;
